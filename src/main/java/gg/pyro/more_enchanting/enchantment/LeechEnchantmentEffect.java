@@ -1,0 +1,33 @@
+package gg.pyro.more_enchanting.enchantment;
+
+import com.mojang.serialization.MapCodec;
+import gg.pyro.more_enchanting.access.CriticalHitTracker;
+import net.minecraft.enchantment.EnchantmentEffectContext;
+import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Vec3d;
+
+import java.util.Random;
+
+public record LeechEnchantmentEffect() implements EnchantmentEntityEffect {
+    public static final MapCodec<LeechEnchantmentEffect> CODEC = MapCodec.unit(LeechEnchantmentEffect::new);
+
+    @Override
+    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity target, Vec3d pos) {
+        if (target instanceof LivingEntity) {
+            if (context.owner() != null && context.owner() instanceof PlayerEntity player) {
+                if (new Random().nextBoolean() && ((CriticalHitTracker) player).moreEnchanting$wasCrit()) {
+                    player.heal(0.5F + 0.5F * level + 1);
+                }
+            }
+        }
+    }
+
+    @Override
+    public MapCodec<? extends EnchantmentEntityEffect> getCodec() {
+        return CODEC;
+    }
+}

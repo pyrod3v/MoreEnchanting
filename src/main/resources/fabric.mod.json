@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "more_enchanting",
+  "version": "${version}",
+  "name": "More Enchanting",
+  "description": "A configurable mod aiming to add useful, original and fun enchantments.",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/more_enchanting/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "gg.pyro.more_enchanting.client.MoreEnchantingDataGenerator"
+    ],
+    "client": [
+      "gg.pyro.more_enchanting.client.MoreEnchantingClient"
+    ],
+    "main": [
+      "gg.pyro.more_enchanting.MoreEnchanting"
+    ],
+    "cardinal-components": [
+      "gg.pyro.more_enchanting.components.MoreEnchantingComponents"
+    ]
+  },
+  "mixins": [
+    "more_enchanting.mixins.json",
+    {
+      "config": "more_enchanting.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "cardinal-components": [
+      "more_enchanting:double_jump_data"
+    ]
+  }
+}
