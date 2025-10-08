@@ -1,20 +1,22 @@
 package gg.pyro.more_enchanting.client.datagen;
 
+import gg.pyro.more_enchanting.MoreEnchanting;
 import gg.pyro.more_enchanting.enchantment.LeechEnchantmentEffect;
 import gg.pyro.more_enchanting.enchantment.MoreEnchantingEnchantments;
+import gg.pyro.more_enchanting.enchantment.RootedEnchantmentEffect;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
-import net.minecraft.component.ComponentType;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
+import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Unit;
+import net.minecraft.registry.tag.TagKey;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,6 +24,8 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
     public EnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
+
+    public static final TagKey<Item> MELEE_WEAPON = TagKey.of(RegistryKeys.ITEM, MoreEnchanting.id("melee_weapon"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
@@ -37,9 +41,25 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                 )
         ));
 
+        register(entries, MoreEnchantingEnchantments.ROOTED, Enchantment.builder(
+                Enchantment.definition(
+                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.LEG_ARMOR),
+                        7,
+                        2,
+                        Enchantment.leveledCost(1, 15),
+                        Enchantment.leveledCost(1, 25),
+                        5,
+                        AttributeModifierSlot.ARMOR
+                )
+        ).addEffect(
+                EnchantmentEffectComponentTypes.TICK,
+                new RootedEnchantmentEffect()
+            )
+        );
+
         register(entries, MoreEnchantingEnchantments.LEECH, Enchantment.builder(
                 Enchantment.definition(
-                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.SWORD_ENCHANTABLE),
+                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(MELEE_WEAPON),
                         6,
                         3,
                         Enchantment.leveledCost(1, 10),

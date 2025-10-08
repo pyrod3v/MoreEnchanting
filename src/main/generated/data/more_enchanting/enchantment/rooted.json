@@ -1,0 +1,29 @@
+{
+  "anvil_cost": 5,
+  "description": {
+    "translate": "enchantment.more_enchanting.rooted"
+  },
+  "effects": {
+    "minecraft:tick": [
+      {
+        "effect": {
+          "type": "more_enchanting:rooted"
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 1,
+    "per_level_above_first": 25
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 15
+  },
+  "slots": [
+    "armor"
+  ],
+  "supported_items": "#minecraft:leg_armor",
+  "weight": 7
+}

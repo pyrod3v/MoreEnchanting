@@ -5,16 +5,16 @@
   },
   "max_cost": {
     "base": 1,
-    "per_level_above_first": 10
+    "per_level_above_first": 20
   },
   "max_level": 1,
   "min_cost": {
     "base": 1,
-    "per_level_above_first": 10
+    "per_level_above_first": 20
   },
   "slots": [
     "armor"
   ],
   "supported_items": "#minecraft:foot_armor",
-  "weight": 10
+  "weight": 5
 }

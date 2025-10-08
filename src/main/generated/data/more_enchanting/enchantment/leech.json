@@ -26,6 +26,6 @@
   "slots": [
     "any"
   ],
-  "supported_items": "#minecraft:enchantable/sword",
-  "weight": 10
+  "supported_items": "#more_enchanting:melee_weapon",
+  "weight": 6
 }

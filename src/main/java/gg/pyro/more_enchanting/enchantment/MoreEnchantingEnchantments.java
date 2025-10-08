@@ -12,8 +12,11 @@ import net.minecraft.util.Identifier;
 public class MoreEnchantingEnchantments {
 
     public static final RegistryKey<Enchantment> DOUBLE_JUMP = of("double_jump");
+    public static final RegistryKey<Enchantment> ROOTED = of("rooted");
     public static final RegistryKey<Enchantment> LEECH = of("leech");
 
+    public static final MapCodec<LeechEnchantmentEffect> ROOTED_EFFECT =
+            Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "rooted"), RootedEnchantmentEffect.CODEC);
     public static final MapCodec<LeechEnchantmentEffect> LEECH_EFFECT =
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "leech"), LeechEnchantmentEffect.CODEC);
 
