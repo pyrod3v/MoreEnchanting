@@ -28,10 +28,10 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.DOUBLE_JUMP, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.FOOT_ARMOR),
-                        10,
+                        5,
                         1,
-                        Enchantment.leveledCost(1, 10),
-                        Enchantment.leveledCost(1, 10),
+                        Enchantment.leveledCost(1, 20),
+                        Enchantment.leveledCost(1, 20),
                         5,
                         AttributeModifierSlot.ARMOR
                 )
@@ -40,7 +40,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.LEECH, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.SWORD_ENCHANTABLE),
-                        10,
+                        6,
                         3,
                         Enchantment.leveledCost(1, 10),
                         Enchantment.leveledCost(1, 15),
