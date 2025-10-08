@@ -20,7 +20,7 @@ public record LeechEnchantmentEffect() implements EnchantmentEntityEffect {
         if (target instanceof LivingEntity) {
             if (context.owner() != null && context.owner() instanceof PlayerEntity player) {
                 if (new Random().nextBoolean() && ((CriticalHitTracker) player).moreEnchanting$wasCrit()) {
-                    player.heal(0.5F + 0.5F * level + 1);
+                    player.heal(0.5F + 0.5F * (level + 1));
                 }
             }
         }
