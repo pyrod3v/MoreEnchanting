@@ -2,7 +2,7 @@ package gg.pyro.more_enchanting.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import gg.pyro.more_enchanting.access.CriticalHitTracker;
+import gg.pyro.more_enchanting.components.MoreEnchantingComponents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -16,20 +16,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin implements CriticalHitTracker {
+public class PlayerEntityMixin {
 
     @Unique
-    private boolean moreEnchanting$wasCrit = false;
-
-    @Override
-    public boolean moreEnchanting$wasCrit() {
-        return moreEnchanting$wasCrit;
-    }
-
-    @Override
-    public void moreEnchanting$setCrit(boolean value) {
-        moreEnchanting$wasCrit = value;
-    }
+    private final PlayerEntity self = (PlayerEntity) (Object) this;
 
     @WrapOperation(
             method = "attack",
@@ -42,15 +32,19 @@ public class PlayerEntityMixin implements CriticalHitTracker {
                              SoundEvent sound, SoundCategory category, float volume, float pitch,
                              Operation<Void> original, Entity target) {
         if (sound == SoundEvents.ENTITY_PLAYER_ATTACK_CRIT) {
-            System.out.println("crit detected!");
-            this.moreEnchanting$setCrit(true);
+            self.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).wasCrit = true;
         }
 
         original.call(world, entity, x, y, z, sound, category, volume, pitch);
     }
 
+    @Inject(method = "attack", at = @At("HEAD"))
+    private void countHits(Entity target, CallbackInfo ci) {
+        self.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).hits++;
+    }
+
     @Inject(method = "attack", at = @At("RETURN"))
     private void resetCritFlag(Entity target, CallbackInfo ci) {
-        this.moreEnchanting$setCrit(false);
+        self.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).wasCrit = false;
     }
 }

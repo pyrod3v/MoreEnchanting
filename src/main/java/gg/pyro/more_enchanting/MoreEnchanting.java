@@ -15,6 +15,7 @@ public class MoreEnchanting implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        MoreEnchantingConfig.init();
         MoreEnchantingEnchantments.register();
         DoubleJumpPacket.register();
         DoubleJumpPacket.registerServer();

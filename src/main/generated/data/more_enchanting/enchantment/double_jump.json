@@ -1,5 +1,5 @@
 {
-  "anvil_cost": 5,
+  "anvil_cost": 10,
   "description": {
     "translate": "enchantment.more_enchanting.double_jump"
   },
@@ -16,5 +16,5 @@
     "armor"
   ],
   "supported_items": "#minecraft:foot_armor",
-  "weight": 5
+  "weight": 4
 }

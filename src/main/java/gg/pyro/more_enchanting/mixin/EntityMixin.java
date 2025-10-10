@@ -16,7 +16,7 @@ public class EntityMixin {
     @Inject(method = "fall", at = @At("TAIL"))
     private void onFall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition, CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity player && onGround) {
-            player.getComponent(MoreEnchantingComponents.DOUBLE_JUMP_DATA_COMPONENT).canDoubleJump = true;
+            player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).canDoubleJump = true;
         }
     }
 }

@@ -1,6 +1,7 @@
 package gg.pyro.more_enchanting.network;
 
 import gg.pyro.more_enchanting.MoreEnchanting;
+import gg.pyro.more_enchanting.MoreEnchantingConfig;
 import gg.pyro.more_enchanting.components.MoreEnchantingComponents;
 import gg.pyro.more_enchanting.enchantment.MoreEnchantingEnchantments;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
@@ -35,7 +36,7 @@ public record DoubleJumpPacket() implements CustomPayload {
             context.server().execute(() -> {
                 ServerPlayerEntity player = context.player();
 
-                if (player.getComponent(MoreEnchantingComponents.DOUBLE_JUMP_DATA_COMPONENT).canDoubleJump &&
+                if (player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).canDoubleJump &&
                         !player.isOnGround() &&
                         !player.isSubmergedInWater() &&
                         player.getVelocity().y < 0.2 &&
@@ -47,19 +48,23 @@ public record DoubleJumpPacket() implements CustomPayload {
                     double fallDistance = player.fallDistance;
                     Vec3d velocity = player.getVelocity();
                     System.out.println(velocity);
-                    player.setVelocity(velocity.x > 0 ? velocity.x + velocity.x / 4 : 0, 0.42, velocity.z);
+                    player.setVelocity(velocity.x > 0 ? velocity.x + velocity.x / 4 : 0, MoreEnchantingConfig.CONFIG.doubleJumpVelocity, velocity.z);
                     player.velocityModified = true;
                     player.fallDistance = fallDistance;
-                    player.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
-                    (player.getWorld()).spawnParticles(
-                            ParticleTypes.CLOUD,
-                            player.getX(),
-                            player.getY(),
-                            player.getZ(),
-                            10,
-                            0.2, 0.1, 0.2, 0.02
-                    );
-                    player.getComponent(MoreEnchantingComponents.DOUBLE_JUMP_DATA_COMPONENT).canDoubleJump = false;
+
+                    if (MoreEnchantingConfig.CONFIG.showDoubleJumpEffect) {
+                        player.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
+                        (player.getWorld()).spawnParticles(
+                                ParticleTypes.CLOUD,
+                                player.getX(),
+                                player.getY(),
+                                player.getZ(),
+                                10,
+                                0.2, 0.1, 0.2, 0.02
+                        );
+                    }
+
+                    player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).canDoubleJump = false;
                 }
             });
         });

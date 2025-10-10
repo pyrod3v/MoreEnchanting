@@ -2,6 +2,7 @@ package gg.pyro.more_enchanting.client.datagen;
 
 import gg.pyro.more_enchanting.MoreEnchanting;
 import gg.pyro.more_enchanting.enchantment.LeechEnchantmentEffect;
+import gg.pyro.more_enchanting.enchantment.MomentumEnchantmentEffect;
 import gg.pyro.more_enchanting.enchantment.MoreEnchantingEnchantments;
 import gg.pyro.more_enchanting.enchantment.RootedEnchantmentEffect;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -32,11 +33,11 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.DOUBLE_JUMP, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.FOOT_ARMOR),
-                        5,
+                        4,
                         1,
                         Enchantment.leveledCost(1, 20),
                         Enchantment.leveledCost(1, 20),
-                        5,
+                        10,
                         AttributeModifierSlot.ARMOR
                 )
         ));
@@ -44,10 +45,10 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.ROOTED, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.LEG_ARMOR),
-                        7,
+                        5,
                         2,
                         Enchantment.leveledCost(1, 15),
-                        Enchantment.leveledCost(1, 25),
+                        Enchantment.leveledCost(1, 20),
                         5,
                         AttributeModifierSlot.ARMOR
                 )
@@ -60,11 +61,11 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.LEECH, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(MELEE_WEAPON),
-                        6,
+                        2,
                         3,
-                        Enchantment.leveledCost(1, 10),
-                        Enchantment.leveledCost(1, 15),
-                        5,
+                        Enchantment.leveledCost(1, 20),
+                        Enchantment.leveledCost(1, 30),
+                        8,
                         AttributeModifierSlot.ANY
                 )
         ).addEffect(
@@ -72,6 +73,22 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                 EnchantmentEffectTarget.ATTACKER,
                 EnchantmentEffectTarget.VICTIM,
                 new LeechEnchantmentEffect()
+            )
+        );
+
+        register(entries, MoreEnchantingEnchantments.MOMENTUM, Enchantment.builder(
+                Enchantment.definition(
+                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(MELEE_WEAPON),
+                        6,
+                        2,
+                        Enchantment.leveledCost(1, 15),
+                        Enchantment.leveledCost(1, 20),
+                        6,
+                        AttributeModifierSlot.ANY
+                )
+        ).addEffect(
+                EnchantmentEffectComponentTypes.TICK,
+                new MomentumEnchantmentEffect()
             )
         );
     }

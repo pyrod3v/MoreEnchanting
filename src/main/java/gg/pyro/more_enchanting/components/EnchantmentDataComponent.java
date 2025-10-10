@@ -6,11 +6,15 @@ import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
-public class DoubleJumpDataComponent implements AutoSyncedComponent {
+public class EnchantmentDataComponent implements AutoSyncedComponent {
     private final PlayerEntity self;
-    public boolean canDoubleJump = true;
 
-    public DoubleJumpDataComponent(PlayerEntity self) {
+    public boolean canDoubleJump = true;
+    public int hits = 0; // not saved as it is used temporarily by the momentum effect
+    public boolean wasCrit = false; // not saved as it is used temporarily by the leech effect
+    public double lastAttackSpeedBoost = 0;
+
+    public EnchantmentDataComponent(PlayerEntity self) {
         this.self = self;
     }
 

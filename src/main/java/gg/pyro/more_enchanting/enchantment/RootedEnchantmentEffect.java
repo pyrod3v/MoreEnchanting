@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
 
 public record RootedEnchantmentEffect() implements EnchantmentEntityEffect {
 
-    public static final MapCodec<LeechEnchantmentEffect> CODEC = MapCodec.unit(LeechEnchantmentEffect::new);
+    public static final MapCodec<RootedEnchantmentEffect> CODEC = MapCodec.unit(RootedEnchantmentEffect::new);
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {

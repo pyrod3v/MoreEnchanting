@@ -1,13 +1,13 @@
 {
-  "anvil_cost": 5,
+  "anvil_cost": 6,
   "description": {
-    "translate": "enchantment.more_enchanting.rooted"
+    "translate": "enchantment.more_enchanting.momentum"
   },
   "effects": {
     "minecraft:tick": [
       {
         "effect": {
-          "type": "more_enchanting:rooted"
+          "type": "more_enchanting:momentum"
         }
       }
     ]
@@ -22,8 +22,8 @@
     "per_level_above_first": 15
   },
   "slots": [
-    "armor"
+    "any"
   ],
-  "supported_items": "#minecraft:leg_armor",
-  "weight": 5
+  "supported_items": "#more_enchanting:melee_weapon",
+  "weight": 6
 }

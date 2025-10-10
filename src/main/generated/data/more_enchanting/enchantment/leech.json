@@ -1,5 +1,5 @@
 {
-  "anvil_cost": 5,
+  "anvil_cost": 8,
   "description": {
     "translate": "enchantment.more_enchanting.leech"
   },
@@ -16,16 +16,16 @@
   },
   "max_cost": {
     "base": 1,
-    "per_level_above_first": 15
+    "per_level_above_first": 30
   },
   "max_level": 3,
   "min_cost": {
     "base": 1,
-    "per_level_above_first": 10
+    "per_level_above_first": 20
   },
   "slots": [
     "any"
   ],
   "supported_items": "#more_enchanting:melee_weapon",
-  "weight": 6
+  "weight": 2
 }
