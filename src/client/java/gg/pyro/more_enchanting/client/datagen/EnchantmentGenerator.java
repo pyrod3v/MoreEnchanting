@@ -1,10 +1,7 @@
 package gg.pyro.more_enchanting.client.datagen;
 
 import gg.pyro.more_enchanting.MoreEnchanting;
-import gg.pyro.more_enchanting.enchantment.LeechEnchantmentEffect;
-import gg.pyro.more_enchanting.enchantment.MomentumEnchantmentEffect;
-import gg.pyro.more_enchanting.enchantment.MoreEnchantingEnchantments;
-import gg.pyro.more_enchanting.enchantment.RootedEnchantmentEffect;
+import gg.pyro.more_enchanting.enchantment.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
@@ -45,11 +42,11 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.ROOTED, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.LEG_ARMOR),
-                        5,
+                        4,
                         2,
-                        Enchantment.leveledCost(1, 15),
                         Enchantment.leveledCost(1, 20),
-                        5,
+                        Enchantment.leveledCost(1, 25),
+                        8,
                         AttributeModifierSlot.ARMOR
                 )
         ).addEffect(
