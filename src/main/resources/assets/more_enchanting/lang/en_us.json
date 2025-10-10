@@ -3,11 +3,11 @@
   "enchantment.more_enchanting.double_jump.desc": "Allows you to jump again in mid-air.",
 
   "enchantment.more_enchanting.rooted": "Rooted",
-  "enchantment.more_enchanting.rooted.desc": "Grants increased regeneration and resistance while sneaking.",
+  "enchantment.more_enchanting.rooted.desc": "Increases regeneration and resistance while sneaking.",
 
   "enchantment.more_enchanting.leech": "Leech",
   "enchantment.more_enchanting.leech.desc": "Has a chance to heal the user when dealing critical hits.",
 
   "enchantment.more_enchanting.momentum": "Momentum",
-  "enchantment.more_enchanting.momentum.desc": "Grants increased attack speed when dealing multiple hits in a short time window."
+  "enchantment.more_enchanting.momentum.desc": "Hitting enemies in quick succession increases attack speed."
 }
