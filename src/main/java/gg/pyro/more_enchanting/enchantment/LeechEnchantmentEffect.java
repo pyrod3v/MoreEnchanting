@@ -22,7 +22,7 @@ public record LeechEnchantmentEffect() implements EnchantmentEntityEffect {
             if (context.owner() != null && context.owner() instanceof PlayerEntity player) {
                 if (MoreEnchantingConfig.CONFIG.leechAlwaysHeal || new Random().nextBoolean()
                         && player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).wasCrit) {
-                    player.heal(MoreEnchantingConfig.CONFIG.leechBaseHeal + MoreEnchantingConfig.CONFIG.leechHealPerLevel * ++level);
+                    player.heal(MoreEnchantingConfig.CONFIG.leechBaseHeal + MoreEnchantingConfig.CONFIG.leechHealPerLevel * level);
                 }
             }
         }

@@ -47,8 +47,10 @@ public record DoubleJumpPacket() implements CustomPayload {
                 ) {
                     double fallDistance = player.fallDistance;
                     Vec3d velocity = player.getVelocity();
-                    System.out.println(velocity);
-                    player.setVelocity(velocity.x > 0 ? velocity.x + velocity.x / 4 : 0, MoreEnchantingConfig.CONFIG.doubleJumpVelocity, velocity.z);
+                    player.setVelocity(
+                            velocity.x != 0 ? velocity.x + velocity.x / 3 : 0,
+                            MoreEnchantingConfig.CONFIG.doubleJumpVelocity,
+                            velocity.z != 0 ? velocity.z + velocity.z / 3 : 0);
                     player.velocityModified = true;
                     player.fallDistance = fallDistance;
 

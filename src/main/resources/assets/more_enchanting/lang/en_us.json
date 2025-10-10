@@ -1,9 +1,12 @@
 {
   "enchantment.more_enchanting.double_jump": "Double Jump",
-  "enchantment.more_enchanting.double_jump.desc": "Allows you to jump again in mid-air.",
+  "enchantment.more_enchanting.double_jump.desc": "Allows the user to jump again in mid-air.",
 
   "enchantment.more_enchanting.rooted": "Rooted",
   "enchantment.more_enchanting.rooted.desc": "Increases regeneration and resistance while sneaking.",
+
+  "enchantment.more_enchanting.soul_anchor": "Soul Anchor",
+  "enchantment.more_enchanting.soul_anchor.desc": "When low on health, gain highly increased resistance but slow speed.",
 
   "enchantment.more_enchanting.leech": "Leech",
   "enchantment.more_enchanting.leech.desc": "Has a chance to heal the user when dealing critical hits.",

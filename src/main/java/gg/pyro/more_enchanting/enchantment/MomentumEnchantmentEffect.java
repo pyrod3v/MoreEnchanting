@@ -39,15 +39,12 @@ public record MomentumEnchantmentEffect() implements EnchantmentEntityEffect {
             double boost =  Math.min(1, hits / (7.5 - level));
             attackSpeed.addPersistentModifier(new EntityAttributeModifier(MOMENTUM_BOOST, boost, EntityAttributeModifier.Operation.ADD_VALUE));
             player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).lastAttackSpeedBoost = boost;
-            player.sendMessage(Text.of("activating"), false);
         } else if (attackTime >= time) {
             if (attackSpeed.hasModifier(MOMENTUM_BOOST)) {
-                player.sendMessage(Text.of("deactivating"), false);
                 attackSpeed.removeModifier(MOMENTUM_BOOST);
             }
             player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).hits = 0;
         } else if (attackTime >= time / 2 && hits == 0 && attackSpeed.hasModifier(MOMENTUM_BOOST)) {
-            player.sendMessage(Text.of("deactivating"), false);
             attackSpeed.removeModifier(MOMENTUM_BOOST);
         }
     }

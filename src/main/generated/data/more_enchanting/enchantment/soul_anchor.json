@@ -1,13 +1,13 @@
 {
-  "anvil_cost": 8,
+  "anvil_cost": 5,
   "description": {
-    "translate": "enchantment.more_enchanting.rooted"
+    "translate": "enchantment.more_enchanting.soul_anchor"
   },
   "effects": {
     "minecraft:tick": [
       {
         "effect": {
-          "type": "more_enchanting:rooted"
+          "type": "more_enchanting:soul_anchor"
         }
       }
     ]
@@ -16,14 +16,14 @@
     "base": 1,
     "per_level_above_first": 25
   },
-  "max_level": 2,
+  "max_level": 1,
   "min_cost": {
     "base": 1,
-    "per_level_above_first": 20
+    "per_level_above_first": 25
   },
   "slots": [
     "armor"
   ],
-  "supported_items": "#minecraft:leg_armor",
-  "weight": 4
+  "supported_items": "#minecraft:chest_armor",
+  "weight": 5
 }

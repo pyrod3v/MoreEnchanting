@@ -22,9 +22,16 @@ public class MoreEnchantingConfig extends Config {
     // double jump
     ConfigGroup doubleJumpSettings = new ConfigGroup();
     public boolean showDoubleJumpEffect = true;
+
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 0.1, max = 5)
     public double doubleJumpVelocity = 0.42;
+
+    ConfigGroup soulAnchorSettings = new ConfigGroup();
+
+    @ConfigGroup.Pop
+    @ValidatedDouble.Restrict(min = 0.5, max = 19)
+    public double soulAnchorHealthThreshold = 4;
 
     // leech
     ConfigGroup leechSettings = new ConfigGroup();

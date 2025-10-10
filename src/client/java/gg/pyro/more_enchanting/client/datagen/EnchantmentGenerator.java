@@ -55,6 +55,22 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
             )
         );
 
+        register(entries, MoreEnchantingEnchantments.SOUL_ANCHOR, Enchantment.builder(
+                        Enchantment.definition(
+                                registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.CHEST_ARMOR),
+                                5,
+                                1,
+                                Enchantment.leveledCost(1, 25),
+                                Enchantment.leveledCost(1, 25),
+                                5,
+                                AttributeModifierSlot.ARMOR
+                        )
+                ).addEffect(
+                        EnchantmentEffectComponentTypes.TICK,
+                        new SoulAnchorEnchantmentEffect()
+                )
+        );
+
         register(entries, MoreEnchantingEnchantments.LEECH, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(MELEE_WEAPON),

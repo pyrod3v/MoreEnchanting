@@ -8,6 +8,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
 public record RootedEnchantmentEffect() implements EnchantmentEntityEffect {
@@ -16,13 +17,13 @@ public record RootedEnchantmentEffect() implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (user instanceof PlayerEntity player) {
-            if (player.isSneaking()) {
-                StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 1, level, false, false, false);
-                StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 1, level, false, false, false);
-                player.addStatusEffect(regeneration);
-                player.addStatusEffect(resistance);
-            }
+        if (!(user instanceof PlayerEntity player) || world.isClient()) return;
+        player.sendMessage(Text.of(String.valueOf(level)), true);
+        if (player.isSneaking()) {
+            StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 10, --level, false, false, false);
+            StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 10, --level, false, false, false);
+            player.addStatusEffect(regeneration);
+            player.addStatusEffect(resistance);
         }
     }
 
