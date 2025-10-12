@@ -13,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
@@ -30,6 +31,7 @@ public record SoulAnchorEnchantmentEffect() implements EnchantmentEntityEffect {
             StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 2, false, false, false);
             StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 10, 1, false, false, false);
             if (!jumpStrength.hasModifier(JUMP_STRENGTH_MODIFIER)) {
+                player.playSound(SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, 0.5F, 1.0F);
                 jumpStrength.addTemporaryModifier(new EntityAttributeModifier(JUMP_STRENGTH_MODIFIER, -0.3, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
             }
             player.addStatusEffect(resistance);

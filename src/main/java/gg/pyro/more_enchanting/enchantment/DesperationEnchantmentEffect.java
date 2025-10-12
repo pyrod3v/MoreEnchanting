@@ -10,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
@@ -24,6 +25,7 @@ public record DesperationEnchantmentEffect() implements EnchantmentEntityEffect 
         if (!(user instanceof PlayerEntity player) || world.isClient()) return;
         var attackDamage = player.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE);
         if (player.getHealth() <= MoreEnchantingConfig.CONFIG.desperationHealthThreshold && !attackDamage.hasModifier(DAMAGE_BOOST)) {
+            player.playSound(SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, 0.5F, 1.0F);
             attackDamage.addTemporaryModifier(new EntityAttributeModifier(DAMAGE_BOOST, 0.08 * level, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         } else if (player.getHealth() > MoreEnchantingConfig.CONFIG.desperationHealthThreshold &&attackDamage.hasModifier(DAMAGE_BOOST)) {
             attackDamage.removeModifier(DAMAGE_BOOST);

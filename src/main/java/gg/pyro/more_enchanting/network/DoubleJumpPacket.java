@@ -55,8 +55,8 @@ public record DoubleJumpPacket() implements CustomPayload {
                     player.fallDistance = fallDistance;
 
                     if (MoreEnchantingConfig.CONFIG.showDoubleJumpEffect) {
-                        player.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
-                        (player.getWorld()).spawnParticles(
+                        player.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0F, 1.0F);
+                        player.getWorld().spawnParticles(
                                 ParticleTypes.CLOUD,
                                 player.getX(),
                                 player.getY(),

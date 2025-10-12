@@ -20,27 +20,31 @@ public class MoreEnchantingConfig extends Config {
     }
 
     // double jump
-    ConfigGroup doubleJumpSettings = new ConfigGroup();
+    ConfigGroup doubleJumpSettings = new ConfigGroup("Double Jump Settings", true);
     public boolean showDoubleJumpEffect = true;
 
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 0.1, max = 5)
     public double doubleJumpVelocity = 0.42;
 
-    ConfigGroup soulAnchorSettings = new ConfigGroup();
+    // soul anchor
+    ConfigGroup soulAnchorSettings = new ConfigGroup("Soul Anchor Settings", true);
 
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 1, max = 19)
     public double soulAnchorHealthThreshold = 4;
 
-    ConfigGroup desperationSettings = new ConfigGroup();
+    // desperation
+    ConfigGroup desperationSettings = new ConfigGroup("Desperation Settings", true);
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 1, max = 19)
     public double desperationHealthThreshold = 5;
 
     // leech
-    ConfigGroup leechSettings = new ConfigGroup();
-    public boolean leechAlwaysHeal = false;
+    ConfigGroup leechSettings = new ConfigGroup("Leech Settings", true);
+
+    @ValidatedFloat.Restrict(min = 0, max = 1)
+    public float leechHealChance = 0.5f;
 
     @ValidatedFloat.Restrict(min = 0, max = 10)
     public float leechBaseHeal = 0.0f;
@@ -50,7 +54,7 @@ public class MoreEnchantingConfig extends Config {
     public float leechHealPerLevel = 0.5f;
 
     // momentum
-    ConfigGroup momentumSettings = new ConfigGroup();
+    ConfigGroup momentumSettings = new ConfigGroup("Momentum Settings", true);
     @ValidatedInt.Restrict(min = 0, max = 50)
     public int momentumBaseTimer = 15;
 
