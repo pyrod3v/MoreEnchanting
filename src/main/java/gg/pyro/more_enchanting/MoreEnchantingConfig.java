@@ -30,8 +30,13 @@ public class MoreEnchantingConfig extends Config {
     ConfigGroup soulAnchorSettings = new ConfigGroup();
 
     @ConfigGroup.Pop
-    @ValidatedDouble.Restrict(min = 0.5, max = 19)
+    @ValidatedDouble.Restrict(min = 1, max = 19)
     public double soulAnchorHealthThreshold = 4;
+
+    ConfigGroup desperationSettings = new ConfigGroup();
+    @ConfigGroup.Pop
+    @ValidatedDouble.Restrict(min = 1, max = 19)
+    public double desperationHealthThreshold = 5;
 
     // leech
     ConfigGroup leechSettings = new ConfigGroup();

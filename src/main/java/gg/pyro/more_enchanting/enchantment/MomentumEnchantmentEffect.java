@@ -11,7 +11,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
@@ -19,11 +18,11 @@ public record MomentumEnchantmentEffect() implements EnchantmentEntityEffect {
 
     public static final MapCodec<MomentumEnchantmentEffect> CODEC = MapCodec.unit(MomentumEnchantmentEffect::new);
 
-    private static final Identifier MOMENTUM_BOOST = MoreEnchanting.id("momentum_enchantment_attack_speed_boost");
+    public static final Identifier MOMENTUM_BOOST = MoreEnchanting.id("momentum_enchantment_attack_speed_boost");
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (!(user instanceof PlayerEntity player)) return;
+        if (!(user instanceof PlayerEntity player) || world.isClient()) return;
 
         var attackSpeed = player.getAttributeInstance(EntityAttributes.ATTACK_SPEED);
         double time = MoreEnchantingConfig.CONFIG.momentumBaseTimer
@@ -37,7 +36,7 @@ public record MomentumEnchantmentEffect() implements EnchantmentEntityEffect {
                 attackTime < time &&
                 hits > 2) {
             double boost =  Math.min(1, hits / (7.5 - level));
-            attackSpeed.addPersistentModifier(new EntityAttributeModifier(MOMENTUM_BOOST, boost, EntityAttributeModifier.Operation.ADD_VALUE));
+            attackSpeed.addTemporaryModifier(new EntityAttributeModifier(MOMENTUM_BOOST, boost, EntityAttributeModifier.Operation.ADD_VALUE));
             player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).lastAttackSpeedBoost = boost;
         } else if (attackTime >= time) {
             if (attackSpeed.hasModifier(MOMENTUM_BOOST)) {

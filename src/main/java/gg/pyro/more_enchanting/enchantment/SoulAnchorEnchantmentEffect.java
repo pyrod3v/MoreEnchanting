@@ -20,17 +20,17 @@ public record SoulAnchorEnchantmentEffect() implements EnchantmentEntityEffect {
 
     public static final MapCodec<SoulAnchorEnchantmentEffect> CODEC = MapCodec.unit(SoulAnchorEnchantmentEffect::new);
 
-    private static final Identifier JUMP_STRENGTH_MODIFIER = MoreEnchanting.id("jump_strength_modifier");
+    public static final Identifier JUMP_STRENGTH_MODIFIER = MoreEnchanting.id("jump_strength_modifier");
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
         if (!(user instanceof PlayerEntity player) || world.isClient()) return;
         var jumpStrength = player.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
-        if (player.getHealth() < MoreEnchantingConfig.CONFIG.soulAnchorHealthThreshold) {
+        if (player.getHealth() <= MoreEnchantingConfig.CONFIG.soulAnchorHealthThreshold) {
             StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 2, false, false, false);
-            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 10, 2, false, false, false);
+            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 10, 1, false, false, false);
             if (!jumpStrength.hasModifier(JUMP_STRENGTH_MODIFIER)) {
-                jumpStrength.addPersistentModifier(new EntityAttributeModifier(JUMP_STRENGTH_MODIFIER, -0.7, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                jumpStrength.addTemporaryModifier(new EntityAttributeModifier(JUMP_STRENGTH_MODIFIER, -0.3, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
             }
             player.addStatusEffect(resistance);
             player.addStatusEffect(slowness);

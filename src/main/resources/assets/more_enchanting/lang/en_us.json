@@ -8,6 +8,9 @@
   "enchantment.more_enchanting.soul_anchor": "Soul Anchor",
   "enchantment.more_enchanting.soul_anchor.desc": "When low on health, gain highly increased resistance but slow speed.",
 
+  "enchantment.more_enchanting.desperation": "Desperation",
+  "enchantment.more_enchanting.desperation.desc": "When low on health, gain increased attack damage.",
+
   "enchantment.more_enchanting.leech": "Leech",
   "enchantment.more_enchanting.leech.desc": "Has a chance to heal the user when dealing critical hits.",
 

@@ -14,16 +14,16 @@ import net.minecraft.util.math.Vec3d;
 import java.util.Random;
 
 public record LeechEnchantmentEffect() implements EnchantmentEntityEffect {
+
     public static final MapCodec<LeechEnchantmentEffect> CODEC = MapCodec.unit(LeechEnchantmentEffect::new);
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity target, Vec3d pos) {
+        if (context.owner() == null || !(context.owner() instanceof PlayerEntity player) || world.isClient()) return;
         if (target instanceof LivingEntity) {
-            if (context.owner() != null && context.owner() instanceof PlayerEntity player) {
-                if (MoreEnchantingConfig.CONFIG.leechAlwaysHeal || new Random().nextBoolean()
-                        && player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).wasCrit) {
-                    player.heal(MoreEnchantingConfig.CONFIG.leechBaseHeal + MoreEnchantingConfig.CONFIG.leechHealPerLevel * level);
-                }
+            if (MoreEnchantingConfig.CONFIG.leechAlwaysHeal || new Random().nextBoolean()
+                    && player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).wasCrit) {
+                player.heal(MoreEnchantingConfig.CONFIG.leechBaseHeal + MoreEnchantingConfig.CONFIG.leechHealPerLevel * level);
             }
         }
     }

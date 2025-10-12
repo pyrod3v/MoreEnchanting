@@ -1,29 +1,29 @@
 {
   "anvil_cost": 8,
   "description": {
-    "translate": "enchantment.more_enchanting.rooted"
+    "translate": "enchantment.more_enchanting.desperation"
   },
   "effects": {
     "minecraft:tick": [
       {
         "effect": {
-          "type": "more_enchanting:rooted"
+          "type": "more_enchanting:desperation"
         }
       }
     ]
   },
   "max_cost": {
     "base": 1,
-    "per_level_above_first": 25
+    "per_level_above_first": 30
   },
-  "max_level": 2,
+  "max_level": 3,
   "min_cost": {
     "base": 1,
     "per_level_above_first": 20
   },
   "slots": [
-    "armor"
+    "any"
   ],
-  "supported_items": "#minecraft:leg_armor",
-  "weight": 5
+  "supported_items": "#more_enchanting:melee_weapon",
+  "weight": 4
 }
