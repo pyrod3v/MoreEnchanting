@@ -24,6 +24,6 @@
   "slots": [
     "any"
   ],
-  "supported_items": "#more_enchanting:melee_weapon",
+  "supported_items": "#minecraft:enchantable/sharp_weapon",
   "weight": 6
 }
