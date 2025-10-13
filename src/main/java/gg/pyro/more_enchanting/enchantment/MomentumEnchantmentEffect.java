@@ -37,7 +37,6 @@ public record MomentumEnchantmentEffect() implements EnchantmentEntityEffect {
                 hits > 2) {
             double boost =  Math.min(1, hits / (7.5 - level));
             attackSpeed.addTemporaryModifier(new EntityAttributeModifier(MOMENTUM_BOOST, boost, EntityAttributeModifier.Operation.ADD_VALUE));
-            player.getComponent(MoreEnchantingComponents.ENCHANTMENT_DATA_COMPONENT).lastAttackSpeedBoost = boost;
         } else if (attackTime >= time) {
             if (attackSpeed.hasModifier(MOMENTUM_BOOST)) {
                 attackSpeed.removeModifier(MOMENTUM_BOOST);

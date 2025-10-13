@@ -74,7 +74,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         Enchantment.leveledCost(1, 20),
                         Enchantment.leveledCost(1, 30),
                         8,
-                        AttributeModifierSlot.ANY
+                        AttributeModifierSlot.MAINHAND
                 )
             ).addEffect(
                 EnchantmentEffectComponentTypes.TICK,
@@ -90,7 +90,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         Enchantment.leveledCost(1, 20),
                         Enchantment.leveledCost(1, 30),
                         8,
-                        AttributeModifierSlot.ANY
+                        AttributeModifierSlot.MAINHAND
                 )
         ).addEffect(
                 EnchantmentEffectComponentTypes.POST_ATTACK,
@@ -108,11 +108,29 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         Enchantment.leveledCost(1, 15),
                         Enchantment.leveledCost(1, 20),
                         6,
-                        AttributeModifierSlot.ANY
+                        AttributeModifierSlot.MAINHAND
                 )
             ).addEffect(
                 EnchantmentEffectComponentTypes.TICK,
                 new MomentumEnchantmentEffect()
+            )
+        );
+
+        register(entries, MoreEnchantingEnchantments.MARKING, Enchantment.builder(
+                Enchantment.definition(
+                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        2,
+                        3,
+                        Enchantment.leveledCost(1, 25),
+                        Enchantment.leveledCost(1, 35),
+                        10,
+                        AttributeModifierSlot.MAINHAND
+                )
+            ).addEffect(
+                EnchantmentEffectComponentTypes.POST_ATTACK,
+                EnchantmentEffectTarget.ATTACKER,
+                EnchantmentEffectTarget.VICTIM,
+                new MarkingEnchantmentEffect()
             )
         );
     }

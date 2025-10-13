@@ -22,7 +22,7 @@
     "per_level_above_first": 15
   },
   "slots": [
-    "any"
+    "mainhand"
   ],
   "supported_items": "#minecraft:enchantable/sharp_weapon",
   "weight": 6

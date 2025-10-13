@@ -12,7 +12,6 @@ public class EnchantmentDataComponent implements AutoSyncedComponent {
     public boolean canDoubleJump = true;
     public int hits = 0; // not saved as it is used temporarily by the momentum effect
     public boolean wasCrit = false; // not saved as it is used temporarily by the leech effect
-    public double lastAttackSpeedBoost = 0;
 
     public EnchantmentDataComponent(PlayerEntity self) {
         this.self = self;

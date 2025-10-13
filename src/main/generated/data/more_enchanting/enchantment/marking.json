@@ -1,14 +1,14 @@
 {
-  "anvil_cost": 8,
+  "anvil_cost": 10,
   "description": {
-    "translate": "enchantment.more_enchanting.leech"
+    "translate": "enchantment.more_enchanting.marking"
   },
   "effects": {
     "minecraft:post_attack": [
       {
         "affected": "victim",
         "effect": {
-          "type": "more_enchanting:leech"
+          "type": "more_enchanting:marking"
         },
         "enchanted": "attacker"
       }
@@ -16,16 +16,16 @@
   },
   "max_cost": {
     "base": 1,
-    "per_level_above_first": 30
+    "per_level_above_first": 35
   },
   "max_level": 3,
   "min_cost": {
     "base": 1,
-    "per_level_above_first": 20
+    "per_level_above_first": 25
   },
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/weapon",
+  "supported_items": "#minecraft:enchantable/sharp_weapon",
   "weight": 2
 }

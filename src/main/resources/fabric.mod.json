@@ -37,7 +37,8 @@
   },
   "custom": {
     "cardinal-components": [
-      "more_enchanting:enchantment_data"
+      "more_enchanting:enchantment_data",
+      "more_enchanting:marking"
     ],
     "fzzy_config": [
       "more_enchanting"

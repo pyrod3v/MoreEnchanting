@@ -11,12 +11,13 @@ import net.minecraft.util.Identifier;
 
 public class MoreEnchantingEnchantments {
 
-    public static final RegistryKey<Enchantment> DOUBLE_JUMP = of("double_jump");
-    public static final RegistryKey<Enchantment> ROOTED = of("rooted");
-    public static final RegistryKey<Enchantment> SOUL_ANCHOR = of("soul_anchor");
-    public static final RegistryKey<Enchantment> DESPERATION = of("desperation");
-    public static final RegistryKey<Enchantment> LEECH = of("leech");
-    public static final RegistryKey<Enchantment> MOMENTUM = of("momentum");
+    public static final RegistryKey<Enchantment> DOUBLE_JUMP = register("double_jump");
+    public static final RegistryKey<Enchantment> ROOTED = register("rooted");
+    public static final RegistryKey<Enchantment> SOUL_ANCHOR = register("soul_anchor");
+    public static final RegistryKey<Enchantment> DESPERATION = register("desperation");
+    public static final RegistryKey<Enchantment> LEECH = register("leech");
+    public static final RegistryKey<Enchantment> MOMENTUM = register("momentum");
+    public static final RegistryKey<Enchantment> MARKING = register("marking");
 
     public static final MapCodec<RootedEnchantmentEffect> ROOTED_EFFECT =
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "rooted"), RootedEnchantmentEffect.CODEC);
@@ -28,8 +29,10 @@ public class MoreEnchantingEnchantments {
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "leech"), LeechEnchantmentEffect.CODEC);
     public static final MapCodec<MomentumEnchantmentEffect> MOMENTUM_EFFECT =
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "momentum"), MomentumEnchantmentEffect.CODEC);
+    public static final MapCodec<MarkingEnchantmentEffect> MARKING_EFFECT =
+            Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "marking"), MarkingEnchantmentEffect.CODEC);
 
-    private static RegistryKey<Enchantment> of(String path) {
+    private static RegistryKey<Enchantment> register(String path) {
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, MoreEnchanting.id(path));
     }
 
