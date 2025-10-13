@@ -16,7 +16,7 @@ public record RootedEnchantmentEffect() implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (!(user instanceof PlayerEntity player) || world.isClient()) return;
+        if (!(user instanceof PlayerEntity player) || player.isInCreativeMode() || world.isClient()) return;
         if (player.isSneaking()) {
             StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 10, --level, false, false, false);
             StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 10, --level, false, false, false);

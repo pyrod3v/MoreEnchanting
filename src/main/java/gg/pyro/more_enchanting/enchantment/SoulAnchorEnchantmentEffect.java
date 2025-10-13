@@ -25,7 +25,7 @@ public record SoulAnchorEnchantmentEffect() implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (!(user instanceof PlayerEntity player) || world.isClient()) return;
+        if (!(user instanceof PlayerEntity player) || player.isInCreativeMode() || player.isSpectator() || world.isClient()) return;
         var jumpStrength = player.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
         if (player.getHealth() <= MoreEnchantingConfig.CONFIG.soulAnchorHealthThreshold) {
             StatusEffectInstance resistance = new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 2, false, false, false);

@@ -22,7 +22,7 @@ public record DesperationEnchantmentEffect() implements EnchantmentEntityEffect 
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (!(user instanceof PlayerEntity player) || world.isClient()) return;
+        if (!(user instanceof PlayerEntity player) || player.isInCreativeMode() || player.isSpectator() || world.isClient()) return;
         var attackDamage = player.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE);
         if (player.getHealth() <= MoreEnchantingConfig.CONFIG.desperationHealthThreshold && !attackDamage.hasModifier(DAMAGE_BOOST)) {
             player.playSound(SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, 0.5F, 1.0F);
