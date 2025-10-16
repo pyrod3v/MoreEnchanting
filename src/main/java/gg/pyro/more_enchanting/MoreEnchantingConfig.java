@@ -20,7 +20,7 @@ public class MoreEnchantingConfig extends Config {
     }
 
     // double jump
-    ConfigGroup doubleJumpSettings = new ConfigGroup("Double Jump Settings", true);
+    public ConfigGroup doubleJumpSettings = new ConfigGroup("Double Jump Settings", true);
     public boolean showDoubleJumpEffect = true;
 
     @ConfigGroup.Pop
@@ -28,20 +28,20 @@ public class MoreEnchantingConfig extends Config {
     public double doubleJumpVelocity = 0.42;
 
     // soul anchor
-    ConfigGroup soulAnchorSettings = new ConfigGroup("Soul Anchor Settings", true);
+    public ConfigGroup soulAnchorSettings = new ConfigGroup("Soul Anchor Settings", true);
 
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 1, max = 19)
     public double soulAnchorHealthThreshold = 4;
 
     // desperation
-    ConfigGroup desperationSettings = new ConfigGroup("Desperation Settings", true);
+    public ConfigGroup desperationSettings = new ConfigGroup("Desperation Settings", true);
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 1, max = 19)
     public double desperationHealthThreshold = 5;
 
     // leech
-    ConfigGroup leechSettings = new ConfigGroup("Leech Settings", true);
+    public ConfigGroup leechSettings = new ConfigGroup("Leech Settings", true);
 
     @ValidatedFloat.Restrict(min = 0, max = 1)
     public float leechHealChance = 0.5f;
@@ -54,7 +54,7 @@ public class MoreEnchantingConfig extends Config {
     public float leechHealPerLevel = 0.5f;
 
     // momentum
-    ConfigGroup momentumSettings = new ConfigGroup("Momentum Settings", true);
+    public ConfigGroup momentumSettings = new ConfigGroup("Momentum Settings", true);
     @ValidatedInt.Restrict(min = 0, max = 50)
     public int momentumBaseTimer = 15;
 
@@ -66,4 +66,14 @@ public class MoreEnchantingConfig extends Config {
     @ValidatedInt.Restrict(min = 0, max = 100)
     @Desc("Controls how many ticks per extra level the player gets to land 2 or more hits.")
     public int momentumPerLevelTimer = 10;
+
+    // frost aspect
+    public ConfigGroup frostAspectSettings = new ConfigGroup("Frost aspect settings", true);
+
+    @ValidatedInt.Restrict(min = 0, max = 50)
+    public int frostAspectBaseFrozenTicks = 20;
+
+    @ConfigGroup.Pop
+    @ValidatedInt.Restrict(min = 5, max = 50)
+    public int frostAspectFrozenTicksPerLevel = 10;
 }

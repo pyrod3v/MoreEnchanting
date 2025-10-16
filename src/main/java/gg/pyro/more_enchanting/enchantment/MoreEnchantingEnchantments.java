@@ -18,6 +18,7 @@ public class MoreEnchantingEnchantments {
     public static final RegistryKey<Enchantment> LEECH = register("leech");
     public static final RegistryKey<Enchantment> MOMENTUM = register("momentum");
     public static final RegistryKey<Enchantment> MARKING = register("marking");
+    public static final RegistryKey<Enchantment> FROST_ASPECT = register("frost_aspect");
 
     public static final MapCodec<RootedEnchantmentEffect> ROOTED_EFFECT =
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "rooted"), RootedEnchantmentEffect.CODEC);
@@ -31,6 +32,8 @@ public class MoreEnchantingEnchantments {
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "momentum"), MomentumEnchantmentEffect.CODEC);
     public static final MapCodec<MarkingEnchantmentEffect> MARKING_EFFECT =
             Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "marking"), MarkingEnchantmentEffect.CODEC);
+    public static final MapCodec<FrostAspectEnchantmentEffect> FROST_ASPECT_EFFECT =
+            Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(MoreEnchanting.MOD_ID, "frost_aspect"), FrostAspectEnchantmentEffect.CODEC);
 
     private static RegistryKey<Enchantment> register(String path) {
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, MoreEnchanting.id(path));

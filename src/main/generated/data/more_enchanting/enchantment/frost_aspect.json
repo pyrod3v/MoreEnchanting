@@ -1,14 +1,14 @@
 {
-  "anvil_cost": 10,
+  "anvil_cost": 5,
   "description": {
-    "translate": "enchantment.more_enchanting.marking"
+    "translate": "enchantment.more_enchanting.frost_aspect"
   },
   "effects": {
     "minecraft:post_attack": [
       {
         "affected": "victim",
         "effect": {
-          "type": "more_enchanting:marking"
+          "type": "more_enchanting:frost_aspect"
         },
         "enchanted": "attacker"
       }
@@ -16,16 +16,16 @@
   },
   "max_cost": {
     "base": 1,
-    "per_level_above_first": 35
+    "per_level_above_first": 25
   },
   "max_level": 3,
   "min_cost": {
     "base": 1,
-    "per_level_above_first": 25
+    "per_level_above_first": 15
   },
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/weapon",
-  "weight": 3
+  "supported_items": "#minecraft:enchantable/sword",
+  "weight": 2
 }

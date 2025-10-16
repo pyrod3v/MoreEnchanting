@@ -18,5 +18,8 @@
   "enchantment.more_enchanting.momentum.desc": "Hitting enemies in quick succession increases attack speed.",
 
   "enchantment.more_enchanting.marking": "Marking",
-  "enchantment.more_enchanting.marking.desc": "Allows you to mark an enemy. Shooting marked enemies causes them to explode."
+  "enchantment.more_enchanting.marking.desc": "Allows you to mark an enemy. Shooting marked enemies causes them to explode.",
+
+  "enchantment.more_enchanting.frost_aspect": "Frost Aspect",
+  "enchantment.more_enchanting.frost_aspect.desc": "Freezes hit enemies."
 }

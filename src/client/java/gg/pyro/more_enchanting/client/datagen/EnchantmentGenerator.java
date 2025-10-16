@@ -119,7 +119,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         register(entries, MoreEnchantingEnchantments.MARKING, Enchantment.builder(
                 Enchantment.definition(
                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                        2,
+                        3,
                         3,
                         Enchantment.leveledCost(1, 25),
                         Enchantment.leveledCost(1, 35),
@@ -131,6 +131,24 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                 EnchantmentEffectTarget.ATTACKER,
                 EnchantmentEffectTarget.VICTIM,
                 new MarkingEnchantmentEffect()
+            )
+        );
+
+        register(entries, MoreEnchantingEnchantments.FROST_ASPECT, Enchantment.builder(
+                Enchantment.definition(
+                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.SWORD_ENCHANTABLE),
+                        2,
+                        3,
+                        Enchantment.leveledCost(1, 15),
+                        Enchantment.leveledCost(1, 25),
+                        5,
+                        AttributeModifierSlot.MAINHAND
+                )
+            ).addEffect(
+                EnchantmentEffectComponentTypes.POST_ATTACK,
+                EnchantmentEffectTarget.ATTACKER,
+                EnchantmentEffectTarget.VICTIM,
+                new FrostAspectEnchantmentEffect()
             )
         );
     }
