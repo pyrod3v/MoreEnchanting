@@ -20,7 +20,7 @@ This mod can be configured in two ways.
 - *(Not recommended)* Open your instance's folder, go to `config/more_enchanting/config.toml` and edit the configuration file manually.
 
 ## Get involved
-If you have found a bug or just want to suggest a feature or improvement, you can [make an issue on the mod's GitHub repository.](https://github.com/pyrod3v/MoreEnchanting/issues)
+If you have found a bug or just want to suggest a feature or improvement, you can [make an issue on this repository](https://github.com/pyrod3v/MoreEnchanting/issues).
 
 ## License
 More Enchanting is licensed under [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). You make redistribute or modify this work, but only for non-commercial purposes, give appropriate credit, provide a link to the license and indicate if changes were made.  
