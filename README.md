@@ -6,7 +6,7 @@ More Enchanting is a mod aiming to enhance the game's enchanting experience, cur
 - **Desperation - Swords, Axes and Maces**. When low on health, gain increased attack damage.
 - **Leech - Swords, Axes and Maces**. Has a 50% chance (configurable) to heal the user when dealing critical hits. Starts at 0.5 heart at level 1 and gives an extra 0.5 per level, up to level 3.
 - **Momentum - Swords and Axes**. Increases attack speed when landing consecutive hits.
-- **Marking - Swords, Axes and Maces**. Marks the hit entity. When the original attacker shoots the same entity with an arrow, it explodes with a power proportional to the enchantment level.
+- **Marking - Swords, Axes and Maces**. Marks the hit entity. When the original attacker shoots the same entity with an arrow, it explodes with power based on the enchantment level (max explosion power is 3, TNT's explosion power is 4).
 - **Frost Aspect - Swords**. Freezes hit enemies.
 
 ### Armor Enchantments
