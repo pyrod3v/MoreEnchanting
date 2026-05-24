@@ -11,16 +11,16 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "gg.pyro.more_enchanting.client.MoreEnchantingDataGenerator"
+      "gg.pyrod3v.more_enchanting.client.MoreEnchantingDataGenerator"
     ],
     "client": [
-      "gg.pyro.more_enchanting.client.MoreEnchantingClient"
+      "gg.pyrod3v.more_enchanting.client.MoreEnchantingClient"
     ],
     "main": [
-      "gg.pyro.more_enchanting.MoreEnchanting"
+      "gg.pyrod3v.more_enchanting.MoreEnchanting"
     ],
     "cardinal-components": [
-      "gg.pyro.more_enchanting.components.MoreEnchantingComponents"
+      "gg.pyrod3v.more_enchanting.components.MoreEnchantingComponents"
     ]
   },
   "mixins": [
@@ -32,8 +32,8 @@
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": ["1.21.8", "1.21.9", "1.21.10"]
+    "fabric-api": "*",
+    "minecraft": ["26.1", "26.1.1", "26.1.2"]
   },
   "custom": {
     "cardinal-components": [
