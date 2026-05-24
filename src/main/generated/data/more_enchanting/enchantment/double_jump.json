@@ -3,6 +3,7 @@
   "description": {
     "translate": "enchantment.more_enchanting.double_jump"
   },
+  "exclusive_set": "minecraft:feather_falling",
   "max_cost": {
     "base": 1,
     "per_level_above_first": 20

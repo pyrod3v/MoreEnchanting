@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
+import net.minecraft.world.item.enchantment.Enchantments;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,6 +29,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
     @Override
     protected void configure(HolderLookup.Provider registries, Entries entries) {
         HolderGetter<Item> itemLookup = entries.getLookup(Registries.ITEM);
+        HolderGetter<Enchantment> enchantmentLookup = entries.getLookup(Registries.ENCHANTMENT);
 
         register(entries, MoreEnchantingEnchantments.DOUBLE_JUMP, new Enchantment.Builder(
                 Enchantment.definition(
@@ -38,7 +41,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         10,
                         EquipmentSlotGroup.ARMOR
                 )
-            )
+            ).exclusiveWith(HolderSet.direct(enchantmentLookup.getOrThrow(Enchantments.FEATHER_FALLING)))
         );
 
         register(entries, MoreEnchantingEnchantments.ROOTED, new Enchantment.Builder(
