@@ -51,9 +51,9 @@ public record DoubleJumpPacket() implements CustomPacketPayload {
                     double fallDistance = player.fallDistance;
                     Vec3 velocity = player.getDeltaMovement();
                     player.setDeltaMovement(
-                            velocity.x != 0 ? velocity.x + velocity.x / 2.5 : 0,
+                            velocity.x * 1.4,
                             MoreEnchantingConfig.CONFIG.doubleJumpVelocity,
-                            velocity.z != 0 ? velocity.z + velocity.z / 2.5 : 0);
+                            velocity.z * 1.4);
                     player.hurtMarked = true;
                     player.fallDistance = fallDistance;
 
