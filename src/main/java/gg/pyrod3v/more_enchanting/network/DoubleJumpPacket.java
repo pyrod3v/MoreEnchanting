@@ -51,9 +51,9 @@ public record DoubleJumpPacket() implements CustomPacketPayload {
                     double fallDistance = player.fallDistance;
                     Vec3 velocity = player.getDeltaMovement();
                     player.setDeltaMovement(
-                            velocity.x != 0 ? velocity.x + velocity.x / 3 : 0,
+                            velocity.x != 0 ? velocity.x + velocity.x / 2.5 : 0,
                             MoreEnchantingConfig.CONFIG.doubleJumpVelocity,
-                            velocity.z != 0 ? velocity.z + velocity.z / 3 : 0);
+                            velocity.z != 0 ? velocity.z + velocity.z / 2.5 : 0);
                     player.hurtMarked = true;
                     player.fallDistance = fallDistance;
 
@@ -63,9 +63,9 @@ public record DoubleJumpPacket() implements CustomPacketPayload {
                         serverLevel.playSound(
                                 null,
                                 player.getX(), player.getY(), player.getZ(),
-                                SoundEvents.PLAYER_ATTACK_SWEEP,
+                                SoundEvents.RABBIT_JUMP,
                                 SoundSource.PLAYERS,
-                                1.0F, 1.0F
+                                8F, 0.5F
                         );
 
                         serverLevel.sendParticles(
