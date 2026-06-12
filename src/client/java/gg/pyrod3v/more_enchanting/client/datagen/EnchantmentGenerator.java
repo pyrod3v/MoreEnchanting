@@ -163,6 +163,19 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
             )
         );
 
+        register(entries, MoreEnchantingEnchantments.ARMOR_CRUSH, new Enchantment.Builder(
+                Enchantment.definition(
+                        itemLookup.getOrThrow(MoreEnchantingTags.HEAVY_WEAPONS),
+                        3,
+                        1,
+                        Enchantment.dynamicCost(1, 15),
+                        Enchantment.dynamicCost(1, 15),
+                        6,
+                        EquipmentSlotGroup.MAINHAND
+                )
+            )
+        );
+
         register(entries, MoreEnchantingEnchantments.CURSE_OF_THE_UNDEAD, new Enchantment.Builder(
                 Enchantment.definition(
                         itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),

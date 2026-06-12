@@ -23,6 +23,9 @@
   "enchantment.more_enchanting.frost_aspect": "Frost Aspect",
   "enchantment.more_enchanting.frost_aspect.desc": "Freeze hit enemies.",
 
+  "enchantment.more_enchanting.armor_crush": "Armor Crush",
+  "enchantment.more_enchanting.armor_crush.desc": "Deal extra armor damage.",
+
   "enchantment.more_enchanting.curse_of_the_undead": "Curse of the Undead",
   "enchantment.more_enchanting.curse_of_the_undead.desc": "Gives the bearer the characteristics of undead monsters."
 }

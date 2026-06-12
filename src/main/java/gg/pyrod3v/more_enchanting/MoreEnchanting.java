@@ -20,6 +20,7 @@ public class MoreEnchanting implements ModInitializer {
     @Override
     public void onInitialize() {
         MoreEnchantingConfig.init();
+        MoreEnchantingTags.register();
         MoreEnchantingEffects.register();
         MoreEnchantingEnchantments.register();
         DoubleJumpPacket.register();

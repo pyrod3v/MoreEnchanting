@@ -19,6 +19,7 @@ public class MoreEnchantingEnchantments {
     public static final ResourceKey<Enchantment> MOMENTUM = register("momentum");
     public static final ResourceKey<Enchantment> MARKING = register("marking");
     public static final ResourceKey<Enchantment> FROST_ASPECT = register("frost_aspect");
+    public static final ResourceKey<Enchantment> ARMOR_CRUSH = register("armor_crush");
 
     public static final ResourceKey<Enchantment> CURSE_OF_THE_UNDEAD = register("curse_of_the_undead");
 

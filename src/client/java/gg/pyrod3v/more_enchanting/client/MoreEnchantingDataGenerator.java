@@ -1,6 +1,7 @@
 package gg.pyrod3v.more_enchanting.client;
 
 import gg.pyrod3v.more_enchanting.client.datagen.EnchantmentGenerator;
+import gg.pyrod3v.more_enchanting.client.datagen.ItemTagGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -10,5 +11,6 @@ public class MoreEnchantingDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(EnchantmentGenerator::new);
+        pack.addProvider(ItemTagGenerator::new);
     }
 }
