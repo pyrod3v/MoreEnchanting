@@ -22,8 +22,8 @@ public abstract class LivingEntityMixin {
     @Inject(method = "hurtServer", at = @At("TAIL"))
     private void detonate(ServerLevel level, DamageSource source, float damage, CallbackInfoReturnable<Boolean> cir) {
         if (source.is(DamageTypes.ARROW) &&
-               source.getEntity() != null &&
-               source.getEntity() instanceof Player player) {
+                source.getEntity() != null &&
+                source.getEntity() instanceof Player player) {
             var comp = self.getComponent(MoreEnchantingComponents.MARKING_COMPONENT);
 
             if (comp.markedBy != null &&

@@ -1,0 +1,29 @@
+{
+  "anvil_cost": 5,
+  "description": {
+    "translate": "enchantment.more_enchanting.curse_of_the_undead"
+  },
+  "effects": {
+    "minecraft:tick": [
+      {
+        "effect": {
+          "type": "more_enchanting:curse_of_the_undead"
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 1,
+    "per_level_above_first": 31
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 31
+  },
+  "slots": [
+    "armor"
+  ],
+  "supported_items": "#minecraft:enchantable/armor",
+  "weight": 1
+}

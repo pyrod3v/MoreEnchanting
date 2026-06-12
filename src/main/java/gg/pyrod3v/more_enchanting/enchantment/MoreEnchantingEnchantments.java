@@ -20,13 +20,17 @@ public class MoreEnchantingEnchantments {
     public static final ResourceKey<Enchantment> MARKING = register("marking");
     public static final ResourceKey<Enchantment> FROST_ASPECT = register("frost_aspect");
 
+    public static final ResourceKey<Enchantment> CURSE_OF_THE_UNDEAD = register("curse_of_the_undead");
+
     public static final MapCodec<RootedEnchantmentEffect> ROOTED_EFFECT = register("rooted", RootedEnchantmentEffect.CODEC);
-    public static final MapCodec<SoulAnchorEnchantmentEffect> SOUL_ANCHOR_EFFECT= register("soul_anchor", SoulAnchorEnchantmentEffect.CODEC);
+    public static final MapCodec<SoulAnchorEnchantmentEffect> SOUL_ANCHOR_EFFECT = register("soul_anchor", SoulAnchorEnchantmentEffect.CODEC);
     public static final MapCodec<DesperationEnchantmentEffect> DESPERATION_EFFECT = register("desperation", DesperationEnchantmentEffect.CODEC);
     public static final MapCodec<LeechEnchantmentEffect> LEECH_EFFECT = register("leech", LeechEnchantmentEffect.CODEC);
     public static final MapCodec<MomentumEnchantmentEffect> MOMENTUM_EFFECT = register("momentum", MomentumEnchantmentEffect.CODEC);
     public static final MapCodec<MarkingEnchantmentEffect> MARKING_EFFECT = register("marking", MarkingEnchantmentEffect.CODEC);
     public static final MapCodec<FrostAspectEnchantmentEffect> FROST_ASPECT_EFFECT = register("frost_aspect", FrostAspectEnchantmentEffect.CODEC);
+
+    public static final MapCodec<CurseOfTheUndeadEffect> CURSE_OF_THE_UNDEAD_EFFECT = register("curse_of_the_undead", CurseOfTheUndeadEffect.CODEC);
 
     private static ResourceKey<Enchantment> register(String id) {
         return ResourceKey.create(Registries.ENCHANTMENT, MoreEnchanting.id(id));

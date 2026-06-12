@@ -1,5 +1,6 @@
 package gg.pyrod3v.more_enchanting;
 
+import gg.pyrod3v.more_enchanting.effect.MoreEnchantingEffects;
 import gg.pyrod3v.more_enchanting.enchantment.MoreEnchantingEnchantments;
 import gg.pyrod3v.more_enchanting.network.DoubleJumpPacket;
 import net.fabricmc.api.ModInitializer;
@@ -19,6 +20,7 @@ public class MoreEnchanting implements ModInitializer {
     @Override
     public void onInitialize() {
         MoreEnchantingConfig.init();
+        MoreEnchantingEffects.register();
         MoreEnchantingEnchantments.register();
         DoubleJumpPacket.register();
         DoubleJumpPacket.registerServer();

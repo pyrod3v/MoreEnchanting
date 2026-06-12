@@ -1,6 +1,6 @@
 {
   "enchantment.more_enchanting.double_jump": "Double Jump",
-  "enchantment.more_enchanting.double_jump.desc": "Allows the user to jump again in mid-air.",
+  "enchantment.more_enchanting.double_jump.desc": "Allows the bearer to jump again in mid-air.",
 
   "enchantment.more_enchanting.rooted": "Rooted",
   "enchantment.more_enchanting.rooted.desc": "Increases regeneration and resistance while sneaking.",
@@ -18,8 +18,11 @@
   "enchantment.more_enchanting.momentum.desc": "Hitting enemies in quick succession increases attack speed.",
 
   "enchantment.more_enchanting.marking": "Marking",
-  "enchantment.more_enchanting.marking.desc": "Allows you to mark an enemy. Shooting marked enemies causes them to explode.",
+  "enchantment.more_enchanting.marking.desc": "Hitting enemies marks them, detonating when hit by an arrow.",
 
   "enchantment.more_enchanting.frost_aspect": "Frost Aspect",
-  "enchantment.more_enchanting.frost_aspect.desc": "Freezes hit enemies."
+  "enchantment.more_enchanting.frost_aspect.desc": "Freezes hit enemies.",
+
+  "enchantment.more_enchanting.curse_of_the_undead": "Curse of the Undead",
+  "enchantment.more_enchanting.curse_of_the_undead.desc": "Gives the bearer the characteristics of undead monsters."
 }

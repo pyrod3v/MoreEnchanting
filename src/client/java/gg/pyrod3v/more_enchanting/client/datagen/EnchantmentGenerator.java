@@ -161,6 +161,22 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                 new FrostAspectEnchantmentEffect()
             )
         );
+
+        register(entries, MoreEnchantingEnchantments.CURSE_OF_THE_UNDEAD, new Enchantment.Builder(
+                        Enchantment.definition(
+                                itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                                1,
+                                1,
+                                Enchantment.dynamicCost(1, 31),
+                                Enchantment.dynamicCost(1, 31),
+                                5,
+                                EquipmentSlotGroup.ARMOR
+                        )
+                ).withEffect(
+                        EnchantmentEffectComponents.TICK,
+                        new CurseOfTheUndeadEffect()
+                )
+        );
     }
 
     private void register(Entries entries, ResourceKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {

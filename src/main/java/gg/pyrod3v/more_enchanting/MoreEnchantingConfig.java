@@ -21,6 +21,7 @@ public class MoreEnchantingConfig extends Config {
 
     // double jump
     public ConfigGroup doubleJumpSettings = new ConfigGroup("Double Jump Settings", true);
+
     public boolean showDoubleJumpEffect = true;
 
     @ConfigGroup.Pop
@@ -36,6 +37,7 @@ public class MoreEnchantingConfig extends Config {
 
     // desperation
     public ConfigGroup desperationSettings = new ConfigGroup("Desperation Settings", true);
+
     @ConfigGroup.Pop
     @ValidatedDouble.Restrict(min = 1, max = 19)
     public double desperationHealthThreshold = 5;
@@ -55,6 +57,7 @@ public class MoreEnchantingConfig extends Config {
 
     // momentum
     public ConfigGroup momentumSettings = new ConfigGroup("Momentum Settings", true);
+
     @ValidatedInt.Restrict(min = 0, max = 50)
     public int momentumBaseTimer = 15;
 
@@ -76,4 +79,16 @@ public class MoreEnchantingConfig extends Config {
     @ConfigGroup.Pop
     @ValidatedInt.Restrict(min = 5, max = 50)
     public int frostAspectFrozenTicksPerLevel = 10;
+
+    // curse of the undead
+    public ConfigGroup decompositionSettings = new ConfigGroup("Decomposition Settings", true);
+
+    @ValidatedInt.Restrict(min = 0, max = 100)
+    @Desc("Chance (%) of the decomposition effect to damage the player (0 disables it).")
+    public int decompositionDamageChance = 30;
+
+    @ConfigGroup.Pop
+    @ValidatedInt.Restrict(min = 1, max = 10)
+    @Desc("Damage dealt by the Decomposition effect.")
+    public int decompositionDamage = 1;
 }

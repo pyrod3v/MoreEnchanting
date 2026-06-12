@@ -2,12 +2,13 @@
   "required": true,
   "minVersion": "0.8",
   "package": "gg.pyrod3v.more_enchanting.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
     "EntityMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "TargetingConditionsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
