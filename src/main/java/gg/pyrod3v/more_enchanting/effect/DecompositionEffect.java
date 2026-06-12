@@ -33,7 +33,7 @@ public class DecompositionEffect extends MobEffect {
         }
 
         if (entity.getRandom().nextFloat() * 80f <= chance) {
-            entity.igniteForTicks((entity.getRandom().nextInt(80, 120) / 100) * MoreEnchantingConfig.CONFIG.decompositionFireTicks);
+            entity.igniteForTicks((entity.getRandom().nextInt(75, 125) / 100) * MoreEnchantingConfig.CONFIG.decompositionFireTicks);
         }
 
         return super.applyEffectTick(level, entity, amplifier);
