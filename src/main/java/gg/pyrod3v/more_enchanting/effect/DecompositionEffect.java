@@ -26,10 +26,16 @@ public class DecompositionEffect extends MobEffect {
         if (level.getGameTime() % 20 != 0 || MoreEnchantingConfig.CONFIG.decompositionDamageChance == 0) {
             return super.applyEffectTick(level, entity, amplifier);
         }
+
         float chance = Math.min(MoreEnchantingConfig.CONFIG.decompositionDamageChance + amplifier * 4, 100);
         if (entity.getRandom().nextFloat() * 100f <= chance) {
             entity.hurtServer(level, entity.damageSources().dryOut(), MoreEnchantingConfig.CONFIG.decompositionDamage);
         }
+
+        if (entity.getRandom().nextFloat() * 80f <= chance) {
+            entity.igniteForTicks((entity.getRandom().nextInt(80, 120) / 100) * MoreEnchantingConfig.CONFIG.decompositionFireTicks);
+        }
+
         return super.applyEffectTick(level, entity, amplifier);
     }
 }

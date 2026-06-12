@@ -85,10 +85,14 @@ public class MoreEnchantingConfig extends Config {
 
     @ValidatedInt.Restrict(min = 0, max = 100)
     @Desc("Chance (%) of the decomposition effect to damage the player (0 disables it).")
-    public int decompositionDamageChance = 30;
+    public int decompositionDamageChance = 22;
 
-    @ConfigGroup.Pop
     @ValidatedInt.Restrict(min = 1, max = 10)
     @Desc("Damage dealt by the Decomposition effect.")
     public int decompositionDamage = 1;
+
+    @ConfigGroup.Pop
+    @ValidatedInt.Restrict(min = 0, max = 100)
+    @Desc("The duration of the Decomposition effect's fire in ticks. Actual duration can be up to 25% different.")
+    public int decompositionFireTicks = 40;
 }
