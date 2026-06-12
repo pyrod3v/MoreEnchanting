@@ -1,5 +1,6 @@
 package gg.pyrod3v.more_enchanting.client.datagen;
 
+import gg.pyrod3v.more_enchanting.MoreEnchantingTags;
 import gg.pyrod3v.more_enchanting.enchantment.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -49,8 +50,8 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         itemLookup.getOrThrow(ItemTags.LEG_ARMOR),
                         5,
                         2,
+                        Enchantment.dynamicCost(1, 10),
                         Enchantment.dynamicCost(1, 20),
-                        Enchantment.dynamicCost(1, 25),
                         8,
                         EquipmentSlotGroup.ARMOR
                 )
@@ -65,8 +66,8 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         itemLookup.getOrThrow(ItemTags.CHEST_ARMOR),
                         4,
                         1,
-                        Enchantment.dynamicCost(1, 25),
-                        Enchantment.dynamicCost(1, 25),
+                        Enchantment.dynamicCost(1, 15),
+                        Enchantment.dynamicCost(1, 15),
                         5,
                         EquipmentSlotGroup.ARMOR
                 )
@@ -81,7 +82,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
                         4,
                         3,
-                        Enchantment.dynamicCost(1, 20),
+                        Enchantment.dynamicCost(1, 15),
                         Enchantment.dynamicCost(1, 30),
                         8,
                         EquipmentSlotGroup.MAINHAND
@@ -98,7 +99,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         2,
                         3,
                         Enchantment.dynamicCost(1, 20),
-                        Enchantment.dynamicCost(1, 30),
+                        Enchantment.dynamicCost(1, 25),
                         8,
                         EquipmentSlotGroup.MAINHAND
                 )
@@ -131,8 +132,8 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                         itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
                         3,
                         3,
-                        Enchantment.dynamicCost(1, 25),
-                        Enchantment.dynamicCost(1, 35),
+                        Enchantment.dynamicCost(1, 15),
+                        Enchantment.dynamicCost(1, 30),
                         10,
                         EquipmentSlotGroup.MAINHAND
                 )
@@ -163,19 +164,19 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         );
 
         register(entries, MoreEnchantingEnchantments.CURSE_OF_THE_UNDEAD, new Enchantment.Builder(
-                        Enchantment.definition(
-                                itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
-                                1,
-                                1,
-                                Enchantment.dynamicCost(1, 31),
-                                Enchantment.dynamicCost(1, 31),
-                                5,
-                                EquipmentSlotGroup.ARMOR
-                        )
-                ).withEffect(
-                        EnchantmentEffectComponents.TICK,
-                        new CurseOfTheUndeadEffect()
+                Enchantment.definition(
+                        itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                        1,
+                        1,
+                        Enchantment.dynamicCost(1, 31),
+                        Enchantment.dynamicCost(1, 31),
+                        5,
+                        EquipmentSlotGroup.ARMOR
                 )
+            ).withEffect(
+                EnchantmentEffectComponents.TICK,
+                new CurseOfTheUndeadEffect()
+            )
         );
     }
 
